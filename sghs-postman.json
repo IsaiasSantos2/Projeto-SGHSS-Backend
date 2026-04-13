@@ -1,0 +1,159 @@
+{
+  "info": {
+    "name": "SGHS API",
+    "_postman_id": "12345-abcde",
+    "description": "Testes da API SGHS",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Auth - Register",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"email\": \"teste@email.com\",\n  \"password\": \"123456\",\n  \"role\": \"PACIENTE\"\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:3000/auth/register",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "3000",
+          "path": ["auth", "register"]
+        }
+      }
+    },
+    {
+      "name": "Auth - Login",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"email\": \"teste@email.com\",\n  \"password\": \"123456\"\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:3000/auth/login",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "3000",
+          "path": ["auth", "login"]
+        }
+      }
+    },
+    {
+      "name": "Pacientes - Criar",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "{{token}}"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"user_id\": 1,\n  \"nome\": \"Isaías\",\n  \"cpf\": \"12345678900\",\n  \"data_nascimento\": \"2000-01-01\"\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:3000/pacientes",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "3000",
+          "path": ["pacientes"]
+        }
+      }
+    },
+    {
+      "name": "Médicos - Criar",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "{{token}}"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"user_id\": 1,\n  \"nome\": \"Dr João\",\n  \"especialidade\": \"Clínico\"\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:3000/medicos",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "3000",
+          "path": ["medicos"]
+        }
+      }
+    },
+    {
+      "name": "Consultas - Criar",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "{{token}}"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"paciente_id\": 1,\n  \"medico_id\": 1,\n  \"data\": \"2026-04-10 10:00\"\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:3000/consultas",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "3000",
+          "path": ["consultas"]
+        }
+      }
+    },
+    {
+      "name": "Consultas - Listar",
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "{{token}}"
+          }
+        ],
+        "url": {
+          "raw": "http://localhost:3000/consultas",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "3000",
+          "path": ["consultas"]
+        }
+      }
+    }
+  ]
+}
